@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.js": "/containers-play/static/js/main.378ff247.chunk.js",
+    "main.js.map": "/containers-play/static/js/main.378ff247.chunk.js.map",
+    "runtime-main.js": "/containers-play/static/js/runtime-main.45ee1edf.js",
+    "runtime-main.js.map": "/containers-play/static/js/runtime-main.45ee1edf.js.map",
+    "static/js/2.09e5c463.chunk.js": "/containers-play/static/js/2.09e5c463.chunk.js",
+    "static/js/2.09e5c463.chunk.js.map": "/containers-play/static/js/2.09e5c463.chunk.js.map",
+    "index.html": "/containers-play/index.html",
+    "static/js/2.09e5c463.chunk.js.LICENSE.txt": "/containers-play/static/js/2.09e5c463.chunk.js.LICENSE.txt",
+    "static/media/container.922b2478.png": "/containers-play/static/media/container.922b2478.png",
+    "static/media/containeraberto.da2e6d83.webp": "/containers-play/static/media/containeraberto.da2e6d83.webp",
+    "static/media/cristais.11e86510.webp": "/containers-play/static/media/cristais.11e86510.webp",
+    "static/media/fundoContainer.b8908e99.webp": "/containers-play/static/media/fundoContainer.b8908e99.webp"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.45ee1edf.js",
+    "static/js/2.09e5c463.chunk.js",
+    "static/js/main.378ff247.chunk.js"
+  ]
+}
