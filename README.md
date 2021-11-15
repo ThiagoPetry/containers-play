@@ -1,1 +1,3 @@
-# containers-play
+# Containers Play
+
+Em desenvolvimento, aplicação em teste.
