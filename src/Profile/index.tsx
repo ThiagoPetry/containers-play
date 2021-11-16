@@ -40,7 +40,6 @@ const Profile: React.FC = () => {
           "125.000"];
 
           const escolhe = Math.random() * (cristais.length - 1) + 0;
-          //console.log(escolhe.toFixed(0));
 
           setPremio({item: item[0], quantidade: cristais[Number(escolhe.toFixed(0))]});
           setGuardaPremio([...guardaPremio, {item: item[0], quantidade: cristais[Number(escolhe.toFixed(0))]}]);
@@ -49,6 +48,9 @@ const Profile: React.FC = () => {
       }
     }    
   },[abrir]);
+
+  const reducer = (previousValue: any, currentValue: any) => previousValue + currentValue;
+  const recebe = guardaPremio.map(a => Number(a.quantidade));
 
   return (
     <>
@@ -63,7 +65,7 @@ const Profile: React.FC = () => {
                 <p>{retorna.quantidade}</p>
                 <p id="item">{retorna.item}</p>
               </span>          
-            )) : ''          
+            )) : <p>...</p>          
           }
         </div>
       </ContainerLateral>
@@ -87,6 +89,11 @@ const Profile: React.FC = () => {
         <div id="info">
           <p><strong>CONTAINERS:</strong>{` x${quantidade?.disponivel}`}</p>
           <p><strong>ABERTOS:</strong>{` x${quantidade?.atual}`}</p>
+          <p id="baixar"><strong>CRISTAIS:</strong>{` x${recebe.length > 0 ? recebe.reduce(reducer) * 1000 : '0'}`}</p>
+          <p><strong>SUPRIMENTOS:</strong>{` x${0}`}</p>
+          <p><strong>ALTERAÇÕES:</strong>{` x${0}`}</p>
+          <p><strong>CORES DE TIROS:</strong>{` x${0}`}</p>
+          <p><strong>SKINS:</strong>{` x${0}`}</p>
         </div>
       </ContainerLateral>
     </>

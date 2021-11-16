@@ -5,6 +5,9 @@ import containerImg from '../assets/container.png';
 import containerAbertoImg from '../assets/containeraberto.webp';
 import efeitoGeral from '../assets/fundoContainer.webp';
 import cristais from '../assets/cristais.webp';
+import fundoVbranco from '../assets/fundoVbranco.svg';
+import fundoVazul from '../assets/fundoVazul.svg';
+import fundoVamarelo from '../assets/fundoVamarelo.svg';
 
 interface IProps {
   status: boolean;
@@ -76,6 +79,7 @@ export const ContainerLateral = styled.div`
     flex-direction: column;
 
     border: 0.1vh solid rgb(255, 255, 255, 0.15);
+    background-color: rgb(255, 255, 255, 0.025);
     border-radius: 0.4vh;
 
     overflow: scroll;
@@ -140,11 +144,20 @@ export const ContainerLateral = styled.div`
       font-size: 1.8vh;
       text-shadow: 0.1vh 0.1vh 0.3vh #333;
 
-
       strong {
         color: #B7FF00;
       }
     }
+
+    #baixar {
+      margin-top: 1vh;
+    }
+  }
+
+  p {
+    text-shadow: 0.1vh 0.1vh 0.3vh #333;
+    color: #fff;
+    font-size: 2vh;
   }
 `;
 
@@ -230,11 +243,12 @@ export const Content = styled.div<IProps>`
         height: 25vh;
       }
 
-      animation: tremer 0.3s 2;
+      animation: tremer 0.3s 2;      
+    `}
 
+    ${props => props.status && props.ativarImgPremio && css`
       width: 40%;
       height: 20vh;
-
       background-image: url(${containerAbertoImg});
     `}
 
@@ -263,7 +277,7 @@ export const Content = styled.div<IProps>`
 
     ${props => props.status && props.ativarImgPremio && css`
       display: block;
-      animation: girar 7s linear infinite;
+      animation: girar 9s linear infinite;
     `}
 
       background-position: center;
@@ -297,7 +311,7 @@ export const Content = styled.div<IProps>`
 
     ${props => props.status && props.ativarImgPremio && css`
       display: block;
-      animation: girar 9s linear infinite;
+      animation: girar 11s linear infinite;
     `}
 
       background-position: center;
@@ -311,6 +325,25 @@ export const Content = styled.div<IProps>`
     display: flex;
     align-items: center;
     justify-content: center;
+
+    &::before {
+      content: '';
+      width: 20%;
+      height: 25vh;
+
+      position: absolute;
+      margin-top: -35vh;
+      display: none;
+
+      ${props => props.status && props.ativarImgPremio && css`
+        display: block;
+      `}
+
+      background-position: center;
+      background-size: cover;
+
+      background-image: url(${fundoVbranco});
+    }
   }
 
   #premio {
