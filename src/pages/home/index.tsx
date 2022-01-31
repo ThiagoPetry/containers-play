@@ -34,7 +34,6 @@ const Home: React.FC = () => {
       await api.get<IAlunos[]>(`alunos`)
       .then((response => {
         setAlunos(response.data); 
-        //setChamada([{nome: response.data.nome, status: false}]); 
       })).catch(() => errorfulNotify("Não foi possível encontrar os alunos."));
     } catch(e) {
       console.log(e);
