@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: 'https://ratings.tankionline.com/api/eu/profile',
+    baseURL: 'http://localhost:9898/',
 });
 
 export default api;

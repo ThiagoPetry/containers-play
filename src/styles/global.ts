@@ -8,35 +8,19 @@ export default createGlobalStyle`
   }
 
   body {
-    background: linear-gradient(10deg, rgba(65, 72, 97, 0.3), rgba(65, 72, 97, 0.3)), linear-gradient(10deg, rgba(65, 72, 97, 0.97), rgba(65, 72, 97, 0.96));
+    width: 100vw;
+    
+    background: #deebff;
     opacity: 0.95;
     cursor: default;
-    font-family: 'Hermes';
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   }
 
   #root {
-    max-width: 100vw;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
-
-    @media screen and (max-width: 425px) {
-      flex-direction: column;
-    }
-
-    &::after {
-      content: 'Desenvolvido por XxOufaGoldxX | Aplicação teste';
-      width: auto;
-      //background-color: rgb(255, 255, 255, 0.20);
-      color: rgb(255, 255, 255, 0.15);
-      font-size: 2vh;
-      padding: 1vh;
-      border-radius: 0.5vh;
-
-      position: absolute;
-      margin-top: -70vh;
-    }
   }
 
   button {
