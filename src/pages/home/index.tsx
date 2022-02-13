@@ -1,142 +1,169 @@
 import React, { useState, useEffect } from 'react';
 
-import { Container, Lista, PopupModal, Linha  } from './styles'
+import { Container, Content, Menu, ContainerLateral, Span } from './styles'
 
-import { BiEdit } from 'react-icons/bi';
-import { MdDeleteForever } from 'react-icons/md';
-
-import Cadastro from '../../components/Popups/Cadastrar';
-import Atualizar from '../../components/Popups/Atualizar';
-import Chamada from '../../components/Popups/Chamada';
-
-import { errorfulNotify, successfulNotify} from '../../hooks/SystemToasts';
-
-import api from '../../services/api';
-
-interface IAlunos {
-  matricula: number;
-  nome: string;
-  cpf: number;
-  frequencia: boolean;
+interface IPremio {
+  item: string;
+  quantidade: string;
+  raridade: string;
 }
 
-interface IChamada {
-  nome: string;
-  status: boolean;
+interface IQuantidade {
+  disponivel: number;
+  atual: number;
 }
 
-
-const Home: React.FC = () => {
-  const [alunos, setAlunos] = useState<IAlunos[]>([]);
-
-  const handleAlunos = async () => {
-    try {
-      await api.get<IAlunos[]>(`alunos`)
-      .then((response => {
-        setAlunos(response.data); 
-      })).catch(() => errorfulNotify("Não foi possível encontrar os alunos."));
-    } catch(e) {
-      console.log(e);
-    }
-  }
+const Profile: React.FC = () => {
+  const [abrir, setAbrir] = useState(false);
+  const [premio, setPremio] = useState<IPremio>();
+  const [guardaPremio, setGuardaPremio] = useState<IPremio[]>([]);
+  const [quantidade, setQuantidade] = useState<IQuantidade>({disponivel: 99999, atual: 0});
+  const [ativarImgPremio, setAtivarImgPremio] = useState(false);
 
   useEffect(() => {
-    handleAlunos();
-    alunos.map(res => setChamada([{nome: res.nome, status: false}]));
-  },[]);
+    setPremio({item: "", quantidade: "", raridade: ""});
+    setAtivarImgPremio(false);
 
-  async function deletarAluno(matricula: number) {
-    try {
-      await api.delete(`alunos/${matricula}`);
-    } catch(e) {
-      console.log(e);
-    }
-    handleAlunos();
-  }
+    if(abrir) {
+      if(quantidade.disponivel > 0) {
+        setTimeout(function() { 
+          const qtdDisponivel = quantidade ? quantidade.disponivel - 1 : 0;
+          const qtdAtual = quantidade ? 99999 - qtdDisponivel : 0;
 
-  let currentTime = new Date();
-  let horaAtual = currentTime.toLocaleString();
+          setQuantidade({disponivel: qtdDisponivel, atual: qtdAtual});
 
-  const [chamada, setChamada] = useState<IChamada[]>([]);
+          const item = ["Cristais"];
+          const cristais = [
+            {
+              "cristais": "3.500",
+              "raridade": "Comum",
+            },
+            {
+              "cristais": "3.500",
+              "raridade": "Comum",
+            },
+            {
+              "cristais": "3.500",
+              "raridade": "Comum",
+            },
+            {
+              "cristais": "3.500",
+              "raridade": "Comum",
+            },
+            {
+              "cristais": "3.500",
+              "raridade": "Comum",
+            },
+            {
+              "cristais": "10.000",
+              "raridade": "Incomum",
+            },
+            {
+              "cristais": "10.000",
+              "raridade": "Incomum",
+            },
+            {
+              "cristais": "10.000",
+              "raridade": "Incomum",
+            },
+            {
+              "cristais": "25.000",
+              "raridade": "Raro",
+            },
+            {
+              "cristais": "25.000",
+              "raridade": "Raro",
+            },
+            {
+              "cristais": "50.000",
+              "raridade": "Épico",
+            },
+            {
+              "cristais": "100.000",
+              "raridade": "Lendário",
+            },
+            {
+              "cristais": "125.000",
+              "raridade": "Exótico",
+            },
+          ];
 
-  async function finalizarChamada(nome: string, status: boolean) {
-    try {
-      await api.put<IChamada[]>(`chamada`, chamada);
+          const escolhe = Math.random() * (cristais.length - 1) + 0;
 
-      status === false ? successfulNotify(`Presença adicionada ao aluno ${nome}!`)
-      : successfulNotify(`Falta adicionada ao aluno ${nome}!`);
+          setPremio({item: item[0], quantidade: cristais[Number(escolhe.toFixed(0))].cristais, raridade: cristais[Number(escolhe.toFixed(0))].raridade});
+          setGuardaPremio([...guardaPremio, {item: item[0], quantidade: cristais[Number(escolhe.toFixed(0))].cristais, raridade: cristais[Number(escolhe.toFixed(0))].raridade}]);
+          setAtivarImgPremio(true);
+        }, 700);
+      }
+    }    
+  },[abrir]);
 
-    } catch(e) {
-      console.log(e);
-      errorfulNotify('Não foi possível realizar a chamada.');
-    }
+  const reducer = (previousValue: any, currentValue: any) => previousValue + currentValue;
+  const recebe = guardaPremio.map(a => Number(a.quantidade));
 
-    handleAlunos();
-  }
-  
   return (
     <>
-      <Container>
-        <div id="menu">
-          <h1>Sistema de Chamada</h1>
-          <h2>Data/Hora: {horaAtual}</h2>
+      <ContainerLateral>
+        <div>
+          <h1>HISTÓRICO DE ABERTURA</h1>
+          <div id="niveis" />
         </div>
-        <Lista>
-          <div id="info">
-            <p>Total de alunos: {alunos ? alunos.length : 0}</p>
-            <p>Presentes: {alunos ? alunos.filter(res => res.frequencia === true).length : 0}</p>
-            <p>Faltantes: {alunos ? alunos.filter(res => res.frequencia === false).length : 0}</p>
-            <div>
-              {/* <PopupModal closeOnEscape trigger={<button>Chamada</button>} modal>
-                {(close: any) => (
-                  <Chamada fechar={close} />
-                )}
-              </PopupModal> */}
-              <PopupModal closeOnEscape trigger={<button>Cadastrar</button>} modal>
-                {(close: any) => (
-                  <Cadastro atualiza={handleAlunos} fechar={close} />
-                )}
-              </PopupModal>
-            </div>
-          </div>
-          <div id="table">
-            <h1>Matrícula</h1>
-            <h1>Nome</h1>
-            <h1>CPF</h1>
-            <h2>Presença</h2>
-            <h2>Atualizar</h2>
-            <h2>Deletar</h2>
-          </div>
-          {
-            alunos && alunos.length ?
-              alunos.map((res, index) => (
-                <Linha key={index} id="lista" presenca={res.frequencia}>
-                  <p>{res.matricula}</p>
-                  <p>{res.nome}</p>
-                  <p>{res.cpf}</p>
-                  <button onClick={() => {
-                    //trocaStatus(res.nome, res.frequencia)}
-                    setChamada([...chamada, {nome: res.nome, status: !res.frequencia}]);
-                    finalizarChamada(res.nome, res.frequencia);
-                  }} className="status">{res.frequencia ? 'P' : 'F'}</button>
-                  <PopupModal closeOnEscape trigger={<button><BiEdit size={25}/></button>} modal>
-                    {(close: any) => (
-                      <Atualizar atualiza={handleAlunos} fechar={close} matricula={res.matricula} />
-                    )}
-                  </PopupModal>
-                  <button><MdDeleteForever size={25} onClick={() => {
-                    deletarAluno(res.matricula); 
-                    successfulNotify(`Aluno ${res.nome} deletado com sucesso!`); 
-                  }}/>
-                  </button>
-                </Linha>
-              ))
-            : <p id="msg">Nenhum aluno cadastrado.</p>
+        <div id="scroll">
+          {guardaPremio.length > 0 ? 
+            guardaPremio.map((retorna, index) => (
+              <Span key={index} raridade={retorna.raridade}>
+                <p>{retorna.quantidade}</p>
+                <p id="item">{retorna.item}</p>
+              </Span>          
+            )) : <p> </p>          
           }
-        </Lista>
+        </div>
+      </ContainerLateral>
+      <Container>
+        <Content status={abrir} ativarImgPremio={ativarImgPremio}>
+          <div id="container"></div>
+          <div id="containerAberto"></div>
+          <div id="premio"></div>
+          <div id="texto">{`${premio?.quantidade} ${premio?.item}`}</div>
+        </Content>
+        <Menu>
+          {quantidade.disponivel > 0 ?
+            <button onClick={() => setAbrir(!abrir)}>{abrir ? 'FECHAR' : 'ABRIR'}</button>
+          : <button>INDISPONÍVEL</button>}
+        </Menu>
       </Container>
+      <ContainerLateral>
+        <div id="scroll">
+          <span>
+            <h1>CONTAINERS</h1>
+            <p>0x</p>
+          </span>
+          <span>
+            <h1>CONTAINERS ABERTOS</h1>
+            <p>0x</p>
+          </span>
+          <span>
+            <h1>CRISTAIS</h1>
+            <p>0x</p>
+          </span>
+        </div>
+      </ContainerLateral>
+      {/* <ContainerLateral>
+        <div>
+          <h1>INFORMAÇÕES</h1>
+        </div>
+        <div id="info">
+          <p><strong>CONTAINERS:</strong>{` x${quantidade?.disponivel}`}</p>
+          <p><strong>ABERTOS:</strong>{` x${quantidade?.atual}`}</p>
+          <p id="baixar"><strong>CRISTAIS:</strong>{` x${recebe.length > 0 ? recebe.reduce(reducer) * 1000 : '0'}`}</p>
+          <p><strong>SUPRIMENTOS:</strong>{` x${0}`}</p>
+          <p><strong>ALTERAÇÕES:</strong>{` x${0}`}</p>
+          <p><strong>CORES DE TIROS:</strong>{` x${0}`}</p>
+          <p><strong>SKINS:</strong>{` x${0}`}</p>
+        </div>
+      </ContainerLateral> */}
     </>
   );
 };
 
-export default Home;
+export default Profile;

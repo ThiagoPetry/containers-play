@@ -1,16 +1,12 @@
-import React, { lazy, Suspense } from 'react';
+import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-const Home = lazy(() => import('../pages/home/index'));
-const Notfound = lazy(() => import('../pages/notfound/index'));
+import Home from '../pages/home/index';
 
 const Routes: React.FC = () => (
-  <Suspense fallback={<div>Carregando...</div>}>
-    <Switch>
-      <Route path="/sistema" exact component={Home} />
-      <Route path="*" exact component={Notfound} />
-    </Switch>
-  </Suspense>
+  <Switch>
+    <Route path="/" exact component={Home} />
+  </Switch>
 );
 
 export default Routes;
