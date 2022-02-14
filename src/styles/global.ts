@@ -12,7 +12,7 @@ export default createGlobalStyle`
   body {
     background: url(${fundoDetalhe}), linear-gradient(180deg, #1B1B1B 0%, #1B1B1B 100%) no-repeat;
     cursor: default;
-    font-family: 'Hermes';
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
     min-height: 100%;
     height: 100vh;

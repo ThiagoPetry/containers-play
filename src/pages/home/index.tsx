@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { Container, Content, Menu, ContainerLateral, Span } from './styles'
+import { Container, Content, Menu, ContainerLateral, Span, ContainerInfo } from './styles'
 
 interface IPremio {
   item: string;
@@ -55,6 +55,50 @@ const Profile: React.FC = () => {
               "raridade": "Comum",
             },
             {
+              "cristais": "3.500",
+              "raridade": "Comum",
+            },
+            {
+              "cristais": "3.500",
+              "raridade": "Comum",
+            },
+            {
+              "cristais": "3.500",
+              "raridade": "Comum",
+            },
+            {
+              "cristais": "3.500",
+              "raridade": "Comum",
+            },
+            {
+              "cristais": "3.500",
+              "raridade": "Comum",
+            },
+            {
+              "cristais": "3.500",
+              "raridade": "Comum",
+            },
+            {
+              "cristais": "3.500",
+              "raridade": "Comum",
+            },
+            {
+              "cristais": "3.500",
+              "raridade": "Comum",
+            },
+            {
+              "cristais": "3.500",
+              "raridade": "Comum",
+            },
+            {
+              "cristais": "3.500",
+              "raridade": "Comum",
+            },
+            {
+              "cristais": "10.000",
+              "raridade": "Incomum",
+            },
+            {
               "cristais": "10.000",
               "raridade": "Incomum",
             },
@@ -65,6 +109,26 @@ const Profile: React.FC = () => {
             {
               "cristais": "10.000",
               "raridade": "Incomum",
+            },
+            {
+              "cristais": "10.000",
+              "raridade": "Incomum",
+            },
+            {
+              "cristais": "10.000",
+              "raridade": "Incomum",
+            },
+            {
+              "cristais": "10.000",
+              "raridade": "Incomum",
+            },
+            {
+              "cristais": "25.000",
+              "raridade": "Raro",
+            },
+            {
+              "cristais": "25.000",
+              "raridade": "Raro",
             },
             {
               "cristais": "25.000",
@@ -77,6 +141,18 @@ const Profile: React.FC = () => {
             {
               "cristais": "50.000",
               "raridade": "Épico",
+            },
+            {
+              "cristais": "50.000",
+              "raridade": "Épico",
+            },
+            {
+              "cristais": "50.000",
+              "raridade": "Épico",
+            },
+            {
+              "cristais": "100.000",
+              "raridade": "Lendário",
             },
             {
               "cristais": "100.000",
@@ -127,41 +203,33 @@ const Profile: React.FC = () => {
           <div id="texto">{`${premio?.quantidade} ${premio?.item}`}</div>
         </Content>
         <Menu>
-          {quantidade.disponivel > 0 ?
-            <button onClick={() => setAbrir(!abrir)}>{abrir ? 'FECHAR' : 'ABRIR'}</button>
-          : <button>INDISPONÍVEL</button>}
+          {
+            quantidade.disponivel > 0 ?
+              <button onClick={() => setAbrir(!abrir)}>{abrir ? 'FECHAR' : 'ABRIR'}</button>
+            : 
+              <button>INDISPONÍVEL</button>
+          }
         </Menu>
       </Container>
-      <ContainerLateral>
-        <div id="scroll">
+      <ContainerInfo>
+        <div id="info">
           <span>
             <h1>CONTAINERS</h1>
-            <p>0x</p>
+            <p>x{quantidade?.disponivel}</p>
           </span>
           <span>
             <h1>CONTAINERS ABERTOS</h1>
-            <p>0x</p>
+            <p>x{quantidade?.atual}</p>
           </span>
           <span>
             <h1>CRISTAIS</h1>
-            <p>0x</p>
+            <p>{recebe.length > 0 ? (recebe.reduce(reducer) * 1000).toLocaleString("pt-BR") : '0'}</p>
+          </span>
+          <span>
+            <button>DETALHES</button>
           </span>
         </div>
-      </ContainerLateral>
-      {/* <ContainerLateral>
-        <div>
-          <h1>INFORMAÇÕES</h1>
-        </div>
-        <div id="info">
-          <p><strong>CONTAINERS:</strong>{` x${quantidade?.disponivel}`}</p>
-          <p><strong>ABERTOS:</strong>{` x${quantidade?.atual}`}</p>
-          <p id="baixar"><strong>CRISTAIS:</strong>{` x${recebe.length > 0 ? recebe.reduce(reducer) * 1000 : '0'}`}</p>
-          <p><strong>SUPRIMENTOS:</strong>{` x${0}`}</p>
-          <p><strong>ALTERAÇÕES:</strong>{` x${0}`}</p>
-          <p><strong>CORES DE TIROS:</strong>{` x${0}`}</p>
-          <p><strong>SKINS:</strong>{` x${0}`}</p>
-        </div>
-      </ContainerLateral> */}
+      </ContainerInfo>
     </>
   );
 };

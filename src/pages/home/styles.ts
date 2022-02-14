@@ -43,7 +43,7 @@ export const ContainerLateral = styled.div`
     align-items: center;
 
     #niveis {
-      width: 20vw;
+      width: 25vw;
       height: 2vh;
 
       border-radius: 0.4vh;
@@ -53,17 +53,19 @@ export const ContainerLateral = styled.div`
       &::after {
         content: 'INCOMUM';
         font-size: 2vh;
-        color: rgb(255, 255, 255, 0.8);
+        color: rgb(255, 255, 255, 1);
         position: absolute;
         margin: -5.5vh 0 0 0;
+        font-weight: bold;
       }
 
       &::before {
         content: 'EXÓTICO';
         font-size: 2vh;
-        color: rgb(255, 255, 255, 0.8);
+        color: rgb(255, 255, 255, 1);
         position: absolute;
-        margin: -5.5vh 0 0 15.6vw;
+        margin: -5.5vh 0 0 21vw;
+        font-weight: bold;
       }
     }
 
@@ -136,8 +138,7 @@ export const ContainerLateral = styled.div`
 `;
 
 export const Span = styled.span<ISpan>`
-
-  ${props => props.raridade === "Comum" && css `
+  ${props => props.raridade === "Comum" && css`
     background-color: rgb(255, 255, 255, 0.3); 
 
     &:hover {
@@ -145,7 +146,7 @@ export const Span = styled.span<ISpan>`
     }
   `};
 
-  ${props => props.raridade === "Incomum" && css `
+  ${props => props.raridade === "Incomum" && css`
     background-color: rgb(50, 205, 50, 0.4); 
 
     &:hover {
@@ -153,7 +154,7 @@ export const Span = styled.span<ISpan>`
     }
   `};
 
-  ${props => props.raridade === "Raro" && css `
+  ${props => props.raridade === "Raro" && css`
     background-color: rgb(65, 105, 225, 0.4); 
 
     &:hover {
@@ -161,7 +162,7 @@ export const Span = styled.span<ISpan>`
     }
   `};
 
-  ${props => props.raridade === "Épico" && css `
+  ${props => props.raridade === "Épico" && css`
     background-color: rgb(148, 0, 211, 0.4);
     
     &:hover {
@@ -169,7 +170,7 @@ export const Span = styled.span<ISpan>`
     }
   `};
 
-  ${props => props.raridade === "Lendário" && css `
+  ${props => props.raridade === "Lendário" && css`
     background-color: rgb(255, 215, 0, 0.4);
 
     &:hover {
@@ -177,13 +178,15 @@ export const Span = styled.span<ISpan>`
     }
   `};
 
-  ${props => props.raridade === "Exótico" && css `
+  ${props => props.raridade === "Exótico" && css`
     background-color: rgb(255, 88, 69, 0.4); 
 
     &:hover {
       background-color: rgb(255, 88, 69, 0.3); 
     }
   `};
+
+  transition: all 0.2s;
 
   width: 8vw;
   min-width: 8vw;
@@ -213,7 +216,8 @@ export const Span = styled.span<ISpan>`
   p {
     text-shadow: 0.1vh 0.1vh 0.3vh #333;
     color: #fff;
-    font-size: 1.6vh;
+    font-size: 2.2vh;
+    font-weight: bold;
   }
 `;
 
@@ -359,8 +363,8 @@ export const Content = styled.div<IProps>`
 
   #texto {
     color: #fff;
-    font-weight: 100;
-    font-size: 2.8vh;
+    font-weight: bold;
+    font-size: 3.2vh;
     text-shadow: 0.1vh 0.1vh 0.3vh #333;
     z-index: 999;
     margin-top: 26vh;
@@ -395,6 +399,67 @@ export const Menu = styled.div`
 
     &:hover {
       background-color: ${shade(0.09, "#6BB307")};
+    }
+  }
+`;
+
+export const ContainerInfo = styled.div`
+  width: 60vw;
+  height: 15vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  #info {
+    width: 80%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+
+    padding: 1vh 2vh 1vh 2vh;
+    
+    border: 0.1vh solid rgb(255, 255, 255, 0.15);
+    background-color: rgb(255, 255, 255, 0.025);
+    border-radius: 0.4vh;
+
+    span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    button {
+      padding: 1.2vh 2.2vh 1.2vh 2.2vh;
+      color: #fff;
+      border: 0;
+      background-color: #077db3;
+      font-size: 2vh;
+      font-weight: bold;
+      border-radius: 0.4vh;
+      text-shadow: 0.1vh 0.1vh 0.3vh #333;
+      box-shadow: 0vh 0vh 0.1vh #333;
+      z-index: 9999;
+
+      &:hover {
+        background-color: ${shade(0.09, "#077db3")};
+      }
+  }
+
+    h1 {
+      font-size: 2.6vh;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    p {
+      text-shadow: 0.1vh 0.1vh 0.3vh #333;
+      color: #fff;
+      font-size: 2.6vh;
     }
   }
 `;
