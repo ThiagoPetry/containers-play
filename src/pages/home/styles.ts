@@ -6,12 +6,13 @@ import containerAbertoImg from '../../assets/containeraberto.webp';
 import efeitoGeral from '../../assets/fundoContainer.webp';
 import cristais from '../../assets/cristais.webp';
 import fundoVbranco from '../../assets/fundoVbranco.svg';
-import fundoVazul from '../../assets/fundoVazul.svg';
+import ultra from '../../assets/ultra.png';
 import fundoVamarelo from '../../assets/fundoVamarelo.svg';
 
 interface IProps {
   status: boolean;
   ativarImgPremio: boolean;
+  containerSelecionado: boolean;
 }
 
 interface ISpan {
@@ -51,7 +52,7 @@ export const ContainerLateral = styled.div`
       background: linear-gradient(to left, rgb(255, 88, 69, 0.7), rgb(255, 215, 0, 0.7), rgb(148, 0, 211, 0.7), rgb(65, 105, 225, 0.7), rgb(50, 205, 50, 0.7), rgb(255, 255, 255, 0.7));
     
       &::after {
-        content: 'INCOMUM';
+        content: 'COMUM';
         font-size: 2vh;
         color: rgb(255, 255, 255, 1);
         position: absolute;
@@ -64,7 +65,7 @@ export const ContainerLateral = styled.div`
         font-size: 2vh;
         color: rgb(255, 255, 255, 1);
         position: absolute;
-        margin: -5.5vh 0 0 21vw;
+        margin: -5.5vh 0 0 20.6vw;
         font-weight: bold;
       }
     }
@@ -276,7 +277,14 @@ export const Content = styled.div<IProps>`
     justify-content: center;
     background-position: center;
     background-size: cover;
-    background-image: url(${containerImg});
+
+    ${props => props.containerSelecionado === true && css`
+      background-image: url(${containerImg});
+    `}
+
+    ${props => props.containerSelecionado === false && css`
+      background-image: url(${ultra});
+    `}
 
     ${props => props.status && css`
       animation: tremer 0.3s 2;      
@@ -374,6 +382,29 @@ export const Content = styled.div<IProps>`
     ${props => props.status && css`
       display: block;
     `}
+  }
+
+  #btnDireita, #btnEsquerda {
+    position: absolute;
+    color: blue;
+    font-size: 4vh;
+
+    svg {
+      color: #d4d4d4;
+
+      &:hover {
+        cursor: pointer;
+        color: #c5c5c5;
+      }
+    }
+  }
+
+  #btnDireita {
+    margin-left: 30vw;
+  }
+
+  #btnEsquerda {
+    margin-right: 30vw;
   }
 `;
 
