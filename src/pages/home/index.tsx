@@ -95,6 +95,102 @@ const Profile: React.FC = () => {
               "raridade": "Comum",
             },
             {
+              "cristais": "3.500",
+              "raridade": "Comum",
+            },
+            {
+              "cristais": "3.500",
+              "raridade": "Comum",
+            },
+            {
+              "cristais": "3.500",
+              "raridade": "Comum",
+            },
+            {
+              "cristais": "3.500",
+              "raridade": "Comum",
+            },
+            {
+              "cristais": "3.500",
+              "raridade": "Comum",
+            },
+            {
+              "cristais": "3.500",
+              "raridade": "Comum",
+            },
+            {
+              "cristais": "3.500",
+              "raridade": "Comum",
+            },
+            {
+              "cristais": "3.500",
+              "raridade": "Comum",
+            },
+            {
+              "cristais": "3.500",
+              "raridade": "Comum",
+            },
+            {
+              "cristais": "3.500",
+              "raridade": "Comum",
+            },
+            {
+              "cristais": "3.500",
+              "raridade": "Comum",
+            },
+            {
+              "cristais": "3.500",
+              "raridade": "Comum",
+            },
+            {
+              "cristais": "3.500",
+              "raridade": "Comum",
+            },
+            {
+              "cristais": "3.500",
+              "raridade": "Comum",
+            },
+            {
+              "cristais": "3.500",
+              "raridade": "Comum",
+            },
+            {
+              "cristais": "3.500",
+              "raridade": "Comum",
+            },
+            {
+              "cristais": "3.500",
+              "raridade": "Comum",
+            },
+            {
+              "cristais": "3.500",
+              "raridade": "Comum",
+            },
+            {
+              "cristais": "3.500",
+              "raridade": "Comum",
+            },
+            {
+              "cristais": "3.500",
+              "raridade": "Comum",
+            },
+            {
+              "cristais": "10.000",
+              "raridade": "Incomum",
+            },
+            {
+              "cristais": "10.000",
+              "raridade": "Incomum",
+            },
+            {
+              "cristais": "10.000",
+              "raridade": "Incomum",
+            },
+            {
+              "cristais": "10.000",
+              "raridade": "Incomum",
+            },
+            {
               "cristais": "10.000",
               "raridade": "Incomum",
             },
@@ -117,6 +213,50 @@ const Profile: React.FC = () => {
             {
               "cristais": "10.000",
               "raridade": "Incomum",
+            },
+            {
+              "cristais": "10.000",
+              "raridade": "Incomum",
+            },
+            {
+              "cristais": "10.000",
+              "raridade": "Incomum",
+            },
+            {
+              "cristais": "10.000",
+              "raridade": "Incomum",
+            },
+            {
+              "cristais": "10.000",
+              "raridade": "Incomum",
+            },
+            {
+              "cristais": "10.000",
+              "raridade": "Incomum",
+            },
+            {
+              "cristais": "3.500",
+              "raridade": "Comum",
+            },
+            {
+              "cristais": "10.000",
+              "raridade": "Incomum",
+            },
+            {
+              "cristais": "10.000",
+              "raridade": "Incomum",
+            },
+            {
+              "cristais": "10.000",
+              "raridade": "Incomum",
+            },
+            {
+              "cristais": "10.000",
+              "raridade": "Incomum",
+            },
+            {
+              "cristais": "3.500",
+              "raridade": "Comum",
             },
             {
               "cristais": "10.000",
@@ -125,6 +265,62 @@ const Profile: React.FC = () => {
             {
               "cristais": "25.000",
               "raridade": "Raro",
+            },
+            {
+              "cristais": "25.000",
+              "raridade": "Raro",
+            },
+            {
+              "cristais": "25.000",
+              "raridade": "Raro",
+            },
+            {
+              "cristais": "25.000",
+              "raridade": "Raro",
+            },
+            {
+              "cristais": "3.500",
+              "raridade": "Comum",
+            },
+            {
+              "cristais": "25.000",
+              "raridade": "Raro",
+            },
+            {
+              "cristais": "25.000",
+              "raridade": "Raro",
+            },
+            {
+              "cristais": "3.500",
+              "raridade": "Comum",
+            },
+            {
+              "cristais": "25.000",
+              "raridade": "Raro",
+            },
+            {
+              "cristais": "25.000",
+              "raridade": "Raro",
+            },
+            {
+              "cristais": "25.000",
+              "raridade": "Raro",
+            },
+            {
+              "cristais": "3.500",
+              "raridade": "Comum",
+            },
+            {
+              "cristais": "25.000",
+              "raridade": "Raro",
+            },
+            {
+              "cristais": "25.000",
+              "raridade": "Raro",
+            },
+            {
+              "cristais": "3.500",
+              "raridade": "Comum",
             },
             {
               "cristais": "25.000",
@@ -143,16 +339,52 @@ const Profile: React.FC = () => {
               "raridade": "Épico",
             },
             {
+              "cristais": "3.500",
+              "raridade": "Comum",
+            },
+            {
               "cristais": "50.000",
               "raridade": "Épico",
             },
             {
               "cristais": "50.000",
               "raridade": "Épico",
+            },
+            {
+              "cristais": "50.000",
+              "raridade": "Épico",
+            },
+            {
+              "cristais": "50.000",
+              "raridade": "Épico",
+            },
+            {
+              "cristais": "3.500",
+              "raridade": "Comum",
             },
             {
               "cristais": "100.000",
               "raridade": "Lendário",
+            },
+            {
+              "cristais": "100.000",
+              "raridade": "Lendário",
+            },
+            {
+              "cristais": "3.500",
+              "raridade": "Comum",
+            },
+            {
+              "cristais": "100.000",
+              "raridade": "Lendário",
+            },
+            {
+              "cristais": "100.000",
+              "raridade": "Lendário",
+            },
+            {
+              "cristais": "3.500",
+              "raridade": "Comum",
             },
             {
               "cristais": "100.000",
@@ -162,9 +394,15 @@ const Profile: React.FC = () => {
               "cristais": "125.000",
               "raridade": "Exótico",
             },
+            {
+              "cristais": "3.500",
+              "raridade": "Comum",
+            },
           ];
 
           const escolhe = Math.random() * (cristais.length - 1) + 0;
+
+          alert(escolhe.toFixed(0)); 
 
           setPremio({item: item[0], quantidade: cristais[Number(escolhe.toFixed(0))].cristais, raridade: cristais[Number(escolhe.toFixed(0))].raridade});
           setGuardaPremio([...guardaPremio, {item: item[0], quantidade: cristais[Number(escolhe.toFixed(0))].cristais, raridade: cristais[Number(escolhe.toFixed(0))].raridade}]);
